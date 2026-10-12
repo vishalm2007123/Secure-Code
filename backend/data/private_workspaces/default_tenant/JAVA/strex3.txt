@@ -1,0 +1,8 @@
+class strex3 {
+public static void main(String[] args) {
+        String str = "Hello";
+        StringBuffer sb = new StringBuffer(str);
+        sb.replace(5, 10, " World");
+        System.out.println(sb); // Output: Hello World
+    }   
+}
