@@ -1,0 +1,18 @@
+model_name_or_path: "Qwen/Qwen2.5-Coder-1.5B" # Qwen3-1.7B equivalent if not available locally or replace with actual huggingface path
+output_dir: "models/qwen3-1.7b-securecode"
+dataset_paths:
+  train: "data/processed/splits/train.jsonl"
+  validation: "data/processed/splits/validation.jsonl"
+  test: "data/processed/splits/test.jsonl"
+learning_rate: 2e-4
+batch_size: 4
+gradient_accumulation_steps: 4
+epochs: 3
+max_seq_length: 1024
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+use_4bit_quantization: true
+eval_steps: 100
+save_steps: 100
+random_seed: 42
