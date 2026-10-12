@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCode AI | Enterprise AI Security Auditor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="orb-bg orb-1"></div>
+    <div class="orb-bg orb-2"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">SecureCode <span class="accent">AI</span></span>
+                    <span class="brand-tag">Static AST + Security LLM Auditor</span>
+                </div>
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-page="home">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Home
+                </a>
+                <a href="auditor.html" class="nav-link" data-page="auditor">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Audit Workspace
+                </a>
+                <a href="studio.html" class="nav-link" data-page="studio">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    Company Model Lab
+                </a>
+                <a href="analytics.html" class="nav-link" data-page="analytics">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Threat Analytics
+                </a>
+                <a href="docs.html" class="nav-link" data-page="docs">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    Rule Catalog
+                </a>
+            </div>
+            <div class="nav-actions">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span class="status-label">Initializing...</span>
+                </div>
+                <button id="themeToggle" class="theme-btn" title="Toggle Theme">
+                    <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Next-Generation ASPM
+            </div>
+            <h1 class="hero-title">Deterministic AST meets <br><span class="gradient-text">Security LLM Reasoning</span></h1>
+            <p class="hero-desc">SecureCode AI combines the speed and absolute certainty of Abstract Syntax Tree analysis with the deep contextual reasoning of fine-tuned Code Security LLMs.</p>
+            
+            <div class="hero-actions">
+                <a href="auditor.html" class="btn primary-btn pulse-glow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Launch Audit Workspace
+                </a>
+                <a href="studio.html" class="btn secondary-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    Explore Company Model Lab
+                </a>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-num">5+</span>
+                <span class="stat-label">Supported Languages</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">1,240+</span>
+                <span class="stat-label">Deterministic Rules</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">Zero</span>
+                <span class="stat-label">Data Egress</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">&lt;2s</span>
+                <span class="stat-label">Avg. Local Analysis Time</span>
+            </div>
+        </div>
+
+        <!-- FEATURES -->
+        <section class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Hybrid AST + LLM Analysis</h3>
+                <p>We use fast Regex/AST parsers to flag deterministic vulnerabilities instantly, while the LLM handles complex cross-file source-to-sink data flow tracing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <h3>Private Model Fine-Tuning</h3>
+                <p>Upload your own company's remediated code examples. SecureCode AI will fine-tune Qwen or CodeLlama directly on your tenant to learn your internal security guidelines.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h3>Verified Auto-Remediation</h3>
+                <p>Never blindly trust AI code generation. Every generated code fix is automatically re-analyzed by the AST engine to guarantee the vulnerability is actually patched.</p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-banner">
+            <h2>Ready to secure your codebase?</h2>
+            <p>Start auditing code securely without your data ever leaving your network.</p>
+            <div class="hero-actions">
+                <a href="auditor.html" class="btn primary-btn pulse-glow">Open Audit Workspace</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="app-footer">
+        <p>&copy; 2026 SecureCode AI. All rights reserved. Enterprise Code Security Posture Management.</p>
+    </footer>
+
+    <script src="nav.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

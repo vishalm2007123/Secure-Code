@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Workspace | SecureCode AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">SecureCode <span class="accent">AI</span></span>
+                    <span class="brand-tag">Static AST + Security LLM Auditor</span>
+                </div>
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-page="home">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Home
+                </a>
+                <a href="auditor.html" class="nav-link" data-page="auditor">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    Audit Workspace
+                </a>
+                <a href="studio.html" class="nav-link" data-page="studio">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    Company Model Lab
+                </a>
+                <a href="analytics.html" class="nav-link" data-page="analytics">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Threat Analytics
+                </a>
+                <a href="docs.html" class="nav-link" data-page="docs">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    Rule Catalog
+                </a>
+            </div>
+            <div class="nav-actions">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span class="status-label">Initializing...</span>
+                </div>
+                <button id="themeToggle" class="theme-btn" title="Toggle Theme">
+                    <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Code Security Audit Workspace</h1>
+                <p>Detect vulnerabilities, trace source-to-sink data flow, map CWE/OWASP, and generate verified secure code fixes using hybrid AST analysis & Security LLMs.</p>
+            </div>
+            
+            <div class="preset-bar">
+                <span class="preset-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Load Sample Preset:
+                </span>
+                <select id="presetSelect" class="preset-dropdown">
+                    <option value="" disabled selected>Select a test case...</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- CODE EDITOR SECTION -->
+        <section class="editor-section">
+            <div class="editor-toolbar">
+                <div class="language-picker">
+                    <div class="ctrl-pair">
+                        <label for="language">Target Language:</label>
+                        <select id="language" class="language-select">
+                            <option value="Python">Python</option>
+                            <option value="C">C</option>
+                            <option value="C++">C++</option>
+                            <option value="Java">Java</option>
+                            <option value="PHP">PHP</option>
+                            <option value="Bash">Bash / Shell</option>
+                            <option value="JavaScript">JavaScript / Node</option>
+                        </select>
+                    </div>
+                    <div class="ctrl-pair">
+                        <label for="aiModel">AI Model:</label>
+                        <select id="aiModel" class="language-select">
+                            <option value="qwen3:1.7b" selected>Qwen3 1.7B</option>
+                            <option value="qwen3:4b">Qwen3 4B</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="editor-actions">
+                    <input type="file" id="auditCodeUploadInput" style="display: none;" multiple>
+                    <button id="uploadCodeBtn" class="secondary-btn" title="Upload Code Files">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        Upload Code
+                    </button>
+                    <button id="clearCodeBtn" class="secondary-btn" title="Clear Code">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                        Clear
+                    </button>
+                    <button id="analyzeButton" class="primary-btn pulse-glow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        Run Security Audit
+                    </button>
+                </div>
+            </div>
+            <textarea id="code" placeholder="// Paste source code here for security analysis...&#10;// Or select a sample preset above." spellcheck="false"></textarea>
+        </section>
+
+        <!-- RESULTS SECTION -->
+        <section id="results" class="results-section hidden">
+            
+            <div class="dashboard-banner glass-card">
+                <div class="score-card">
+                    <div class="score-ring-container">
+                        <svg class="score-ring-svg" width="100" height="100" viewBox="0 0 100 100">
+                            <circle class="score-ring-bg" cx="50" cy="50" r="42"/>
+                            <circle id="scoreRingProgress" class="score-ring-progress" cx="50" cy="50" r="42"/>
+                        </svg>
+                        <div class="score-value-container">
+                            <span id="securityScoreVal" class="score-number">100</span>
+                            <span class="score-denom">/100</span>
+                        </div>
+                    </div>
+                    <div class="score-info">
+                        <span class="score-title">Security Score</span><br>
+                        <div id="vulnerabilityBadge" class="vuln-badge clean">CODE CLEAN</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-center-actions">
+                    <div class="summary-metrics">
+                        <div class="metric-box critical" id="filterCriticalBtn" title="Filter Critical">
+                            <span id="countCritical" class="metric-count">0</span>
+                            <span class="metric-label">Critical</span>
+                        </div>
+                        <div class="metric-box high" id="filterHighBtn" title="Filter High">
+                            <span id="countHigh" class="metric-count">0</span>
+                            <span class="metric-label">High</span>
+                        </div>
+                        <div class="metric-box medium" id="filterMediumBtn" title="Filter Medium">
+                            <span id="countMedium" class="metric-count">0</span>
+                            <span class="metric-label">Medium</span>
+                        </div>
+                        <div class="metric-box low" id="filterLowBtn" title="Filter Low">
+                            <span id="countLow" class="metric-count">0</span>
+                            <span class="metric-label">Low</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-right-tools">
+                    <button id="exportReportBtn" class="secondary-btn download-report-btn">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Export Report (.md)
+                    </button>
+                </div>
+            </div>
+
+            <!-- TABS -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="tab-findings">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Structured Findings (<span id="findingsTabCount">0</span>)
+                </button>
+                <button class="tab-btn" data-tab="tab-static">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Deterministic Rules
+                </button>
+                <button class="tab-btn" data-tab="tab-ai">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    LLM Raw Output
+                </button>
+            </div>
+
+            <div class="tab-contents">
+                <div id="tab-findings" class="tab-panel active">
+                    <div id="correlatedFindingsList" class="findings-list"></div>
+                </div>
+                <div id="tab-static" class="tab-panel">
+                    <div id="staticResults" class="static-results-container"></div>
+                </div>
+                <div id="tab-ai" class="tab-panel">
+                    <div class="ai-results-card">
+                        <div class="card-header"><h4>Raw Security LLM Output</h4></div>
+                        <pre id="llmResults" class="code-block-display"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REWRITE -->
+            <div id="rewriteActionBanner" class="rewrite-action-banner">
+                <div class="banner-text">
+                    <h3>Secure Code Remediation</h3>
+                    <p>Automate security fixes using AI code rewriter and perform independent re-analysis verification.</p>
+                </div>
+                <button id="rewriteButton" class="remediate-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    Generate & Verify Secure Rewrite
+                </button>
+            </div>
+
+            <div id="rewrittenSection" class="rewritten-section hidden">
+                <div class="section-divider"></div>
+                <div id="verificationBanner" class="verification-banner pass">
+                    <div class="banner-icon-container">
+                        <svg id="verificationIconPass" class="verif-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <svg id="verificationIconFail" class="verif-icon hidden" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    </div>
+                    <div class="verification-details">
+                        <div class="verif-header">
+                            <span class="verif-title">Independent Re-Analysis Verification:</span>
+                            <span id="verifStatusBadge" class="verif-status-badge pass">VERIFIED SECURE</span>
+                        </div>
+                        <p id="verifSummaryText" class="verif-description">Checking security posture of generated code...</p>
+                    </div>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="code-box original-box">
+                        <div class="code-box-header">
+                            <span class="dot red-dot"></span>
+                            <span>Original Code (Vulnerable)</span>
+                        </div>
+                        <textarea id="originalCompareCode" readonly spellcheck="false"></textarea>
+                    </div>
+
+                    <div class="code-box secure-box">
+                        <div class="code-box-header">
+                            <span class="dot green-dot"></span>
+                            <span>Remediated Code (Secure)</span>
+                            <button id="copyFixBtn" class="small-copy-btn" title="Copy Secure Code">Copy</button>
+                        </div>
+                        <textarea id="rewrittenCode" spellcheck="false"></textarea>
+                    </div>
+                </div>
+
+                <div class="reanalyze-action-bar">
+                    <button id="reanalyzeButton" class="secondary-btn">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                        Re-Audit Modified Fix
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2026 SecureCode AI. All rights reserved. Enterprise Code Security Posture Management.</p>
+    </footer>
+    <script src="nav.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
